@@ -4,5 +4,5 @@ CREATE TABLE "Product" (
     "name" TEXT NOT NULL,
     "price" REAL NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedt" DATETIME NOT NULL
+    "updatedAt" DATETIME NOT NULL
 );

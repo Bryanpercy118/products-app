@@ -20,5 +20,7 @@ model Product{
 
 
   createdAt DateTime @default(now())
-  updatedt  DateTime @updatedAt
+  updatedAt DateTime @updatedAt
 }
+
+

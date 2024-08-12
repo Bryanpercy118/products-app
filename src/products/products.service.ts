@@ -7,18 +7,25 @@ import { PrismaClient } from '@prisma/client';
 export class ProductsService extends PrismaClient implements OnModuleInit{
   private readonly logger = new Logger('ProductsService');
   
-  onModuleInit() {
-    this.$connect();
-    this.logger.log('Database initialized');
+  async onModuleInit() {
+    try {
+      await this.$connect();
+      this.logger.log('Database connection established');
+    } catch (error) {
+      this.logger.error('Failed to connect to the database', error);
+    }
   }
+  
   create(createProductDto: CreateProductDto) {
+    this.logger.log('CreateProductDto:', createProductDto);
     return this.product.create({
       data: createProductDto,
-    })
+    });
   }
+  
 
   findAll() {
-    return `This action returns all products`;
+    return this.product.count();
   }
 
   findOne(id: number) {
