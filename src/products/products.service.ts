@@ -6,7 +6,8 @@ import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class ProductsService extends PrismaClient implements OnModuleInit{
   onModuleInit() {
-    throw new Error('Method not implemented.');
+    this.$connect();
+    console.log('Database initialized');
   }
   create(createProductDto: CreateProductDto) {
     return 'This action adds a new product';
